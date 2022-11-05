@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int enemyCount = 1 , enemySpawnCount = 1; // Dusman sayimiz ve bir sonraki tur da olusacak dusman sayimiz
+    private int enemyCount = 1 , enemySpawnCount = 1; // Dusman sayimiz ve bir sonraki turda olusacak dusman sayimiz
     private Vector3 spawnPoint;     // Dusmanin olusacagi nokta
     public GameObject enemy;         // Dusmani tanimladigimiz ve motorda atayacagimiz yer
                                                    
@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
         CreateEnemy(enemySpawnCount);   //Sahnemiz basladiginda dusman olusturan kod
         Instance = this;     //Disardan bu scripte ulastigimizda scripti tekrardan gözden gecirerek kodlarýn dogru calismasi icin gerekli kod 
     }
-    /// <EnemyDestroyed>
-    /// dü?man say?s?n? kontrol ediyoruz
-    /// </EnemyDestroyed>
     public void EnemyDestroyed() // Kaydettigimiz ilerlemeye gore dusman sayimizi ayarladigimiz metot
     {
         if(enemyCount > 0) // Eger dusman sayimiz 0 dan buyukse
@@ -31,18 +28,12 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    /// <CreateEnemy>
-    /// dü?man olu?turuyoruz
-    /// </CreateEnemy>
-    /// <param name="count"> olu?turulacak dü?man say?s?</param>
-    
-    
-    void CreateEnemy(int count) // Dusman olusturmak icin yazilan metot kac tane olusacagini belirlemek icin parametre de belirliyoruz
+    void CreateEnemy(int count) // Icine atayacaðýmýz deðiþken degeri kadar dusmani sahnemizde olusturacak metot.
     {
         for(int i = 0; i < count; i++) // Olusacak dusman sayisi kadar for donuyor 
         {
-            spawnPoint = new Vector3(Random.Range(-5, 5), 10, Random.Range(-5, 5));  // Dusmanin olusacagi noktayi belirliyoruz
-            Instantiate(enemy, spawnPoint, enemy.transform.rotation);  //Instantiate metotu ile dusan olusturuyoruz.
+            spawnPoint = new Vector3(Random.Range(-5, 5), 10, Random.Range(-5, 5));  // Dusmanin olusacagi araligi belirliyoruz
+            Instantiate(enemy, spawnPoint, enemy.transform.rotation);  //Instantiate metotu ile dusman olusturuyoruz.
         }
         
     }

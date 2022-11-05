@@ -9,7 +9,7 @@ public class FallControll : MonoBehaviour
     {
         if (other.tag == "Player")  // eger player tagý olan obje ile etkilesime girdiyse
         {
-            other.gameObject.SetActive(false); // düsmanlarý yok et
+            other.gameObject.SetActive(false); // player görünümünü kapat
             SceneManager.LoadScene(0);  // sahneyi tekrardan yukle
         }
         else // eger player tagý olmayan bir obje collider ile etkilesime girdiyse

@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        horizantalInput = Input.GetAxis("Horizontal");  // Atadýgýmýz degiskenin yatay girdisini almak icin yazilan kod
-        rb.AddForce(Vector3.back * horizantalInput * speed * Time.deltaTime, ForceMode.Impulse); // yatay girdi aldigimizda rigidbody componentine kuvvet uyguluyoruz
         verticalInput = Input.GetAxis("Vertical"); // Atadýgýmýz degiskenin dikey girdisini almak icin yazilan kod
-        rb.AddForce(Vector3.right * verticalInput * speed * Time.deltaTime , ForceMode.Impulse); // dikey girdi aldigimizda rigidbody componentine kuvvet uyguluyoruz
+        rb.AddForce(Vector3.forward * verticalInput * speed * Time.deltaTime, ForceMode.Impulse); //girdiyi aldigimizda topu ileri ve geri kuvvet ile hareket ettirdigimiz kod
+        horizantalInput = Input.GetAxis("Horizontal");  // Atadýgýmýz degiskenin yatay girdisini almak icin yazilan kod
+        rb.AddForce(Vector3.right * horizantalInput * speed * Time.deltaTime , ForceMode.Impulse); //girdiyi aldigimizda topu sag ve sol kuvvet ile hareket ettirdigimiz kod
     }
 }
