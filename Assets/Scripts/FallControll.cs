@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class FallControll : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)//tetiklenme ba?lang?c?nda çal???r
+    private void OnTriggerEnter(Collider other) //Collider ile etkilesime girdigi anda bu metot calisir
     {
-        if (other.tag == "Player")// oyuncuyla çarp??t???nda
+        if (other.tag == "Player")  // eger player tagý olan obje ile etkilesime girdiyse
         {
-            other.gameObject.SetActive(false);
-            SceneManager.LoadScene(0);
+            other.gameObject.SetActive(false); // düsmanlarý yok et
+            SceneManager.LoadScene(0);  // sahneyi tekrardan yukle
         }
-        else
+        else // eger player tagý olmayan bir obje collider ile etkilesime girdiyse
         {
-            Destroy(other.gameObject);
-            GameManager.Instance.EnemyDestroyed();
+            Destroy(other.gameObject);  // etkilesime giren objeyi yok et
+            GameManager.Instance.EnemyDestroyed();  //GameManager scriptinde ki EnemyDestroyed metotunu calistir
         }
     }
 }
